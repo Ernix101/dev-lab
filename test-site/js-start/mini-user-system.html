@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User entry</title>
+    <link rel="stylesheet" href="mini-user-system.css" />
+    <script src="mini-user-system.js" defer></script>
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <h1>welcome to the VIP club</h1>
+      <h2>Enter your details first</h2>
+      <!--Input area for the form-->
+      <div class="loginform">
+        <label for="username"
+          >Enter your username
+          <input type="text" id="username" name="username" /> </label
+        ><br /><br />
+        <!-- <button type="submit">Log in</button><br><br> -->
+        <label for="password">
+          Enter password
+          <input
+            type="password"
+            id="password"
+            name="password"
+            maxlength="4"
+            required
+          /> </label
+        ><br /><br />
+        <button id="loginBtn">Log in</button>
+        <button id="signUp">Sign up</button>
+      </div>
+      <div id="messageDiv"></div>
+    </main>
+  </body>
+</html>

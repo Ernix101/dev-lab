@@ -1,0 +1,8 @@
+p {
+  color: red;
+}
+
+.done {
+  color: darkseagreen;
+  text-decoration: line-through solid black 20px;
+}

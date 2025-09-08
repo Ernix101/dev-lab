@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Silly story challenge</title>
+    <link rel="stylesheet" href="story-generator.css" />
+    <script src="story-generator.js" defer></script>
+  </head>
+  <body>
+    <div>
+      <label for="customname">Enter custom name</label>
+      <input id="customname" type="text" placeholder="Enter name" />
+    </div>
+
+    <div>
+      <label for="us">US</label>
+      <input type="radio" id="us" name="ukus" value="us" checked />
+      <label for="uk">UK</label>
+      <input type="radio" id="uk" name="ukus" value="uk" />
+    </div>
+    <button class="randomize">Generate random story</button>
+    <p class="story"></p>
+    <div class="parent-div">
+      press the button to test event bubbling!
+      <button class="clicked">click here!</button>
+    </div>
+  </body>
+</html>

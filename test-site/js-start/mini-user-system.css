@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: gray;
+  color: black;
+  display: flex;
+  justify-content: center;
+}
+
+main {
+  border: 5px solid blue;
+  border-radius: 10px;
+  margin-top: 20px;
+  background-color: burlywood;
+}
+
+h1 {
+  color: rebeccapurple;
+  margin: 10px;
+}
+h2 {
+  color: rgb(3, 165, 3);
+  margin-bottom: 15px;
+  margin-left: 20px;
+}
+
+/* styles for the form container*/
+input[required] {
+  border: 1mm solid red;
+  border-radius: 10px;
+}
+input:valid {
+  outline: 3px solid green; /* check if the input validates */
+}
+input:invalid {
+  outline: 3px solid red;
+}
+/* input:enabled {
+  border: 4px solid blue; /* For inputs that can work (that we did not set to disabled) */
+*/ button[type="submit"] {
+  font-size: 1.5rem;
+}
+a[href^="https"] {
+  color: blue; /* ^ is to select the ones that start with whatever is in the brackets. $ is for the end. * is for selecting from anywhere on the link.*/
+}
+input:focus {
+  outline: 2px solid black; /* when any input is focused on*/
+}
+
+.loginform {
+  margin: 15px;
+  padding: 20px;
+}
+button {
+  font-size: 1rem;
+  background-color: aqua;
+  color: blue;
+  border-radius: 3px;
+  padding: 7px;
+}

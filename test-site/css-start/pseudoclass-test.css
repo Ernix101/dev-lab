@@ -1,0 +1,56 @@
+a:link,
+a:visited {
+  color: rebeccapurple;
+  font-weight: bold;
+}
+a:hover {
+  color: hotpink;
+}
+p:hover {
+  color: blue;
+}
+/*These are examples among the other pseudoclasses. They follow the selector with a single colon*/
+
+article p::first-line {
+  font-size: 120%;
+  font-weight: bold;
+}
+/*This article p with two colons (common for any pseudo element) makes the first line of a paragraph bigger and bold, regardless of screen size */
+*::selection {
+  background-color: red;
+}
+/*This will make any text which you click on have a red background thanks to the universal selector but you can adjust it to any other element */
+p::first-letter {
+  background-color: yellow;
+  border: 1px solid black;
+  font-size: 2rem;
+}
+/*This made the first letter of any paragraph element enclosed in a border(or box)and have the interior as yellow and text size of two rems*/
+
+article p:first-child::first-line {
+  font-size: 120%;
+  font-weight: bold;
+}
+/*This sequence above is of a pseudoclass following a pseudo element to make the first line of only the first paragraph bold and larger */
+
+/*.box::before {
+  content: "This was not here unless the 'before element' worked. Now you see me, hopefully in yellow";
+  background-color: yellow;
+}
+/*The ::before combined with content and color makes the content and background color above appear before the paragraph with the box class */
+.box::after {
+  content: "Now this content also not from html should appear after normal content to your left";
+  background-color: yellow;
+}
+/*You can tell it brings the content after */
+/*However this is not often used due to inaccessibility by some screen readers. It would be better to insert icons or shapes */
+
+.box::before {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 100px;
+  background-color: rebeccapurple;
+  border: 1px solid black;
+}
+/*A fun purple block has been created now. You can use any shape or icon in future. Preferably over the text content */

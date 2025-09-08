@@ -1,0 +1,31 @@
+html {
+  font-family: sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  background-color: white;
+}
+
+.box {
+  width: 300px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgb(2, 153, 153);
+  border-radius: 10px;
+  font-size: 1.063rem; /* 1rem is 16px so 17px is 1.063rem as the px required by the challenge*/
+  color: darkblue;
+  background: linear-gradient(
+      to bottom right,
+      rgba(255, 255, 255, 0.6),
+      rgba(220, 220, 220, 0.6)
+    )
+    aqua;
+  box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.6) inset 3px 3px 6px
+    rgba(255, 255, 255, 0.5) inset -3px -3px 6px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+}

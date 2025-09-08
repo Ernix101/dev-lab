@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>testing box modelling</title>
+    <meta name="author" content="ernix" />
+    <meta lang="en-US" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="box-model.css" />
+  </head>
+  <body>
+    <h1>Learning to adjust boxes.</h1>
+    <p>
+      Here are some of the things I made. All paragraphs are wrapped in purple
+      borders to indicate their block sizes.
+    </p>
+    <p class="box-p"></p>
+    <p>
+      The above line is a paragraph with no content and a border in css with no
+      width, height or anything.
+    </p>
+    <p>A small list to attempt flex display</p>
+    <ul>
+      <li>Item one</li>
+      <li>Item two</li>
+      <li>Item three</li>
+    </ul>
+    <p>
+      I am another paragraph. Some of the <span class="block">words</span> have
+      been wrapped in a <span>span element</span> to block an entire line.
+    </p>
+    <div class="standardbox">
+      I have a height of 150px. A width of 300px and padding of 40px. I'm the
+      standard browser box.
+    </div>
+    <div class="alternatebox">
+      I have a height of 150px. A width of 350px and padding of 25px. I'm the
+      alternate box.
+    </div>
+
+    <h2>Margins, padding, and borders</h2>
+    <p>Let's try changing some of the margins</p>
+    <div class="container">
+      <div class="innercontainer">Change my margin.</div>
+    </div>
+
+    <p>Now let's try changing the borders of the boxes.</p>
+    <div class="borderbox">
+      <div class="borderinnerbox">
+        Set my borders. Left, right, top or bottom. even color.
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="innnerwrapper"></div>
+      <div class="innnerwrapper">
+        These boxes both have a min-height set, this box has content in it which
+        will need more space than the assigned height, and so it grows from the
+        minimum.
+      </div>
+    </div>
+    <footer>
+      <p>
+        Here are links formatted using display: inline-block to allow padding to
+        be set on it and become eye-catching.
+      </p>
+      <nav>
+        <ul class="links-list">
+          <li><a href="">Link one</a></li>
+          <li><a href="">Link two</a></li>
+          <li><a href="">Link three</a></li>
+        </ul>
+      </nav>
+    </footer>
+  </body>
+</html>

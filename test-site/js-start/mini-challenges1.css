@@ -1,0 +1,46 @@
+body {
+  font-size: 1.2rem;
+  font-family: sans-serif;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+#myBtn,
+#myBtnTwo {
+  font-size: 1.8rem;
+  font-family: "Times New Roman", Times, serif;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 2px;
+  margin: 5px;
+}
+
+#readBtn {
+  font-family: "Times New Roman", Times, serif;
+  padding: 15px;
+  border: 1mm solid rebeccapurple;
+  background-color: yellow;
+  font-size: 1.7rem;
+  margin: 10px;
+}
+
+h1 {
+  background-color: rebeccapurple;
+  color: white;
+}
+
+.enabled {
+  background-color: rgba(6, 186, 231, 0.808);
+  font-weight: bold;
+  color: white;
+}
+.disabled {
+  background-color: rgb(150, 150, 150);
+  color: rgb(212, 212, 212);
+}
+
+.hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.192);
+  font-weight: bold;
+  padding: 10px 20px;
+}

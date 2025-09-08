@@ -1,0 +1,133 @@
+/*general page styles*/
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  background-color: rgb(0, 0, 0);
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: sans-serif;
+  font-weight: bold;
+  color: rgb(231, 7, 82);
+  border: 2px solid rebeccapurple;
+  border-radius: 5px;
+}
+
+/*header styles*/
+#start {
+  background-color: linear-gradient(darkblue, lightblue);
+  padding: 10px;
+  border: 5px solid lightgreen;
+  border-radius: 9px 9px 0 0;
+  margin: 10px;
+  text-align: center;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0% {
+    color: #00ffcc;
+  }
+  50% {
+    color: #ff4500;
+  }
+  100% {
+    color: #00ffcc;
+  }
+}
+/*main content styles*/
+.card {
+  width: 350px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 1em;
+  background-color: #1a1a1a;
+  border: 9px solid rgb(3, 81, 226);
+  border-radius: 9px;
+  color: #00ffcc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  overflow: auto;
+  position: relative;
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 1s forwards 0.5s;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.card-article .profileimg {
+  width: 85px;
+  height: 85px;
+  position: absolute;
+  object-fit: cover;
+  max-width: 100%;
+  top: 3px;
+  right: 3px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.stats {
+  background-color: rgb(19, 167, 253);
+  font-weight: bold;
+  font-size: large;
+  color: black;
+}
+
+.gamertag {
+  background-color: rgb(4, 122, 201);
+  color: black;
+}
+
+.game-icon {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  vertical-align: middle;
+  margin-right: 0.5em;
+  border-radius: 3px;
+  transition: all 0.3s;
+}
+
+.game-icon:hover {
+  transform: scale(1.1);
+}
+
+dt {
+  border: 5px solid black;
+  margin: 5px;
+  color: rgb(226, 5, 189);
+}
+.card dt {
+  display: flex;
+  align-items: center;
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 1.5em;
+}
+.card ul {
+  list-style-type: none;
+  padding: 0;
+}
+.card ul li {
+  margin: 0.3em 0;
+}
+/*footer styles*/
+#end {
+  background: linear-gradient(lightblue, darkblue);
+  border-radius: 0 0 9px 9px;
+  padding: 15px;
+  font-family: sans-serif;
+}
+#end:hover {
+  background: #555;
+  transition: all 0.3s;
+  transform: scale(1.02);
+}

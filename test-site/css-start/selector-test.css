@@ -1,0 +1,62 @@
+body {
+  font-family: sans-serif;
+}
+
+strong {
+  color: rebeccapurple;
+}
+
+em {
+  color: rebeccapurple;
+}
+
+#one {
+  background-color: yellow;
+}
+
+span.highlight {
+  background-color: yellow;
+}
+
+h1#heading {
+  background-color: pink;
+}
+
+.notebox {
+  border: 4px solid #666;
+}
+.notebox.warning {
+  border-color: orange;
+  font-weight: bold;
+}
+.notebox.danger {
+  border-color: red;
+  font-weight: bold;
+}
+/*the three 'notebox and other words' above demonstrate how space separated two worded classes are typed to capture both words of the class next time you need to write a class name with two words, refer here*/
+
+/*h1 *:first-child {
+  margin: 0;
+}*/
+
+li[class] {
+  font-size: 120%;
+}
+[class="a"] {
+  background-color: blue;
+}
+[class~="a"] {
+  color: red;
+}
+/*The three above are for basic presence and value selectors. They show how spaced attributes of a class can be referred individually and globally.*/
+
+[class^="a"] {
+  font-size: 120%;
+}
+[class$="a"] {
+  background-color: violet;
+}
+[class*="a"] {
+  color: aqua;
+}
+/*The three above are selectors for substring matching. The first is for attributes starting with a- the second for those ending in -a and third for where -a- is anywhere in the string*/
