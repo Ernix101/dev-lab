@@ -1,0 +1,96 @@
+* {
+    margin:0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.4;
+    box-sizing: border-box;
+    background-color: #121212;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gamertag {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    align-self: center;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.card-header {
+    position: relative;
+    margin: 20px;
+    padding: 30px;
+    /* display: flex;
+    align-items: center; */
+    border: 1.5px solid white;
+    border-radius: 30px;
+    margin-bottom: 30px;
+}
+
+.gamer-card {
+    padding: 25px;
+    margin: 30px;
+    width: 800px;
+    border-radius: 50px;
+    border: 2mm solid #00f7ff;
+    box-shadow: 0 0 10px #00f7ff, 0 0 20px #00f7ff, 0 0 40px #00f7ff;
+    background-color: rgba(0, 0, 0, 0.50);
+    overflow: hidden;
+    object-fit: contain;
+    animation: fadeIn 1s ease-in-out forwards, neonGlow 4s infinite alternate;
+}
+
+.list {
+    margin-bottom: 40px;
+}
+
+li ~ img {
+    width: 150px;
+    height: 150px;
+    align-self: center;
+    border-radius: 50%;
+}
+
+@keyframes fadeIn {
+    from{
+    opacity: 0; 
+    transform: translateY(30px);
+    } 
+    to{
+    opacity: 1;
+    transform: translateY(0);
+    }
+}
+
+@keyframes neonGlow {
+    0% {box-shadow: 0 0 10px #00f7ff, 0 0 20px #00f7ff;}
+    50% {box-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;}
+    100% {box-shadow: 0 0 10px #00f7ff, 0 0 20px #00f7ff;}
+}
+
+@media (max-width: 600px) {
+    .gamer-card {
+        width: 95%;
+        font-size: 0.9rem;
+        padding: 15px;
+    }
+
+    .avatar {
+        width: 60px;
+        height: 60px;
+    }
+}

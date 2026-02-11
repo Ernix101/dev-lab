@@ -1,0 +1,83 @@
+:root {
+    --base-color: white;
+    --base-variant: hsl(228, 12%, 92%);
+    --text-color: #111528;
+    --secondary-text: #232738;
+    --primary-color: #3a435d;
+    --accent-color: #0071ff;
+}
+
+.darkmode{
+    --base-color: #070b1d;
+    --base-variant: #101425;
+    --text-color: #ffffff;
+    --secondary-text: #a4a5b8;
+    --primary-color: #3a435d;
+    --accent-color: #0071ff;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.7rem;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--base-color);
+    color: var(--text-color);
+    margin: 1.2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+header{
+     margin-top: 2.5rem;
+     margin-bottom: 1.5rem;
+}
+button{
+    font-size: inherit;
+    padding: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    margin: 10px;
+}
+.cta-button {
+    background-color: var(--accent-color);
+}
+
+#theme-switch{
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    border-radius: 50%;
+    background-color: var(--base-variant);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+#theme-switch svg{
+    fill: var(--primary-color);
+}
+#theme-switch svg:last-child{
+    display: none;
+}
+.darkmode #theme-switch svg:first-child{
+    display: none;
+}
+.darkmode #theme-switch svg:last-child{
+    display: block;
+}
+
+section{
+    background-color: var(--base-variant);
+    padding: 20px;
+    border-radius: 5px;
+}

@@ -1,0 +1,766 @@
+CLAUDE'S COLOR CODED TIMETABLE
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 7 Timetable - Accurate</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f5f5f5;
+            padding: 15px;
+        }
+        
+        .container {
+            max-width: 100%;
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow-x: auto;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 1.6em;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.85em;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+            font-size: 0.85em;
+        }
+        
+        th {
+            background: #667eea;
+            color: white;
+            padding: 10px 6px;
+            text-align: center;
+            font-weight: bold;
+            border: 1px solid #ddd;
+            font-size: 0.9em;
+        }
+        
+        td {
+            border: 1px solid #ddd;
+            padding: 8px 5px;
+            text-align: center;
+            vertical-align: middle;
+            min-width: 110px;
+        }
+        
+        .time-col {
+            background: #f8f9fa;
+            font-weight: bold;
+            color: #555;
+            width: 85px;
+            font-size: 0.8em;
+        }
+        
+        .session {
+            border-radius: 5px;
+            padding: 6px;
+            color: white;
+            line-height: 1.3;
+        }
+        
+        .session-title {
+            font-weight: bold;
+            margin-bottom: 2px;
+            font-size: 0.9em;
+        }
+        
+        .session-detail {
+            font-size: 0.75em;
+            opacity: 0.95;
+        }
+        
+        /* Colors */
+        .excel-tutorial { background: #48bb78; }
+        .excel-drill { background: #38a169; }
+        .python-tutorial { background: #f56565; }
+        .python-drill { background: #e53e3e; }
+        .webdev-tutorial { background: #4299e1; }
+        .webdev-drill { background: #3182ce; }
+        .docs { background: #ecc94b; color: #333; }
+        .flex { background: #9f7aea; }
+        .integration { background: #ed8936; }
+        .hsm { background: #805ad5; }
+        .gym { background: #718096; }
+        .lecture { background: #e2e8f0; color: #333; }
+        .break { background: #f7fafc; color: #666; border: 2px dashed #cbd5e0; }
+        .assignment { background: #d97706; }
+        .planning { background: #b794f4; }
+        .empty { background: transparent; }
+        
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 6px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.75em;
+        }
+        
+        .legend-box {
+            width: 16px;
+            height: 16px;
+            border-radius: 3px;
+        }
+        
+        @media (max-width: 768px) {
+            .container { padding: 8px; }
+            h1 { font-size: 1.2em; }
+            table { font-size: 0.7em; }
+            .session { font-size: 0.85em; padding: 5px; }
+            td { padding: 5px 3px; min-width: 85px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📅 Ernest's Week 7 Timetable</h1>
+        <p class="subtitle">Midday Gym + HSM Blocks + Claude Tasks + KU Lectures</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                    <th>Saturday</th>
+                    <th>Sunday</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 7-9 AM -->
+                <tr>
+                    <td class="time-col">7-9 AM</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td>
+                        <div class="session lecture">
+                            <div class="session-title">📚 UCU104</div>
+                            <div class="session-detail">In Person</div>
+                        </div>
+                    </td>
+                    <td class="empty">-</td>
+                    <td>
+                        <div class="session lecture">
+                            <div class="session-title">📚 PHM101</div>
+                            <div class="session-detail">In Person - OML2</div>
+                        </div>
+                    </td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                </tr>
+                
+                <!-- 8-9:30 AM -->
+                <tr>
+                    <td class="time-col">8-9:30 AM</td>
+                    <td>
+                        <div class="session hsm">
+                            <div class="session-title">📖 HSM Block 1</div>
+                            <div class="session-detail">PHM101 Notes</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="session hsm">
+                            <div class="session-title">📖 HSM Block 1</div>
+                            <div class="session-detail">PHI102 Notes</div>
+                        </div>
+                    </td>
+                    <td class="empty">-</td>
+                    <td>
+                        <div class="session hsm">
+                            <div class="session-title">📖 HSM Block 1</div>
+                            <div class="session-detail">PHM104 Notes</div>
+                        </div>
+                    </td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                </tr>
+                
+                <!-- 9:15-10:45 AM -->
+                <tr>
+                    <td class="time-col">9:15-10:45</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td>
+                        <div class="session hsm">
+                            <div class="session-title">📖 HSM Block 1</div>
+                            <div class="session-detail">UCU104 Notes</div>
+                        </div>
+                    </td>
+                    <td class="empty">-</td>
+                    <td>
+                        <div class="session hsm">
+                            <div class="session-title">📖 HSM Block 1</div>
+                            <div class="session-detail">HEH100 Notes</div>
+                        </div>
+                    </td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                </tr>
+                
+                <!-- 9:30-10:30 AM -->
+                <tr>
+                    <td class="time-col">9:30-10:30</td>
+                    <td class="empty">-</td>
+                    <td>
+                        <div class="session excel-tutorial">
+                            <div class="session-title">🟢 Light Practice</div>
+                            <div class="session-detail">Excel/Python review</div>
+                        </div>
+                    </td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                </tr>
+                
+                <!-- 10-11:30 AM -->
+                <tr>
+                    <td class="time-col">10-11:30</td>
+                    <td>
+                        <div class="session excel-tutorial">
+                            <div class="session-title">🟢 EXCEL</div>
+                            <div class="session-detail">Tutorial 🎓</div>
+                            <div class="session-detail">Dashboard + Slicers</div>
+                        </div>
+                    </td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td>
+                        <div class="session excel-drill">
+                            <div class="session-title">🟢 EXCEL</div>
+                            <div class="session-detail">Drill 🔨</div>
+                            <div class="session-detail">PivotTables</div>
+                        </div>
+                    </td>
+                    <td class="empty">-</td>
+                    <td>
+                        <div class="session hsm">
+                            <div class="session-title">📖 HSM</div>
+                            <div class="session-detail">Weakest Unit Review</div>
+                        </div>
+                    </td>
+                    <td class="empty">-</td>
+                </tr>
+                
+                <!-- 11 AM-1 PM -->
+                <tr>
+                    <td class="time-col">11-1 PM</td>
+                    <td class="empty">-</td>
+                    <td>
+                        <div class="session lecture">
+                            <div class="session-title">📚 UCU110</div>
+                            <div class="session-detail">Online</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="session lecture">
+                            <div class="session-title">📚 PHI102</div>
+                            <div class="session-detail">In Person - EF2</div>
+                        </div>
+                    </td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                </tr>
+                
+                <!-- 11-12:30 PM (GYM slot for Thu) -->
+                <tr>
+                    <td class="time-col">11-12:30</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td>
+                        <div class="session gym">
+                            <div class="session-title">💪 GYM</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="session gym">
+                            <div class="session-title">💪 GYM</div>
+                        </div>
+                    </td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                </tr>
+                
+                <!-- 12-1 PM -->
+                <tr>
+                    <td class="time-col">12-1 PM</td>
+                    <td>
+                        <div class="session lecture">
+                            <div class="session-title">📚 HEH100</div>
+                            <div class="session-detail">Online</div>
+                        </div>
+                    </td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                </tr>
+                
+                <!-- 12:30-1:30 PM (Lunch for Fri) -->
+                <tr>
+                    <td class="time-col">12:30-1:30</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td>
+                        <div class="session break">
+                            <div class="session-title">🍽️ Lunch/Rest</div>
+                        </div>
+                    </td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                </tr>
+                
+                <!-- 1-2 PM -->
+                <tr>
+                    <td class="time-col">1-2 PM</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td>
+                        <div class="session break">
+                            <div class="session-title">🍽️ LUNCH</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="session lecture">
+                            <div class="session-title">📚 PHM104</div>
+                            <div class="session-detail">Online</div>
+                        </div>
+                    </td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                </tr>
+                
+                <!-- 1:15-2:45 PM (GYM for Mon/Tue/Wed) -->
+                <tr>
+                    <td class="time-col">1:15-2:45</td>
+                    <td>
+                        <div class="session gym">
+                            <div class="session-title">💪 GYM</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="session gym">
+                            <div class="session-title">💪 GYM</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="session gym">
+                            <div class="session-title">💪 GYM</div>
+                        </div>
+                    </td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td>
+                        <div class="session assignment">
+                            <div class="session-title">📋 ASSIGNMENTS</div>
+                            <div class="session-detail">Research Slot</div>
+                        </div>
+                    </td>
+                </tr>
+                
+                <!-- 1:30-3 PM (Fri Python Drill) -->
+                <tr>
+                    <td class="time-col">1:30-3 PM</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td>
+                        <div class="session python-drill">
+                            <div class="session-title">🔴 PYTHON</div>
+                            <div class="session-detail">Drill 🔨</div>
+                            <div class="session-detail">Patient Management OOP</div>
+                        </div>
+                    </td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                </tr>
+                
+                <!-- 2-3 PM (Fri UCU104) -->
+                <tr>
+                    <td class="time-col">2-3 PM</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td>
+                        <div class="session lecture">
+                            <div class="session-title">📚 UCU104</div>
+                            <div class="session-detail">In Person - SOE 1,2</div>
+                        </div>
+                    </td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                </tr>
+                
+                <!-- 2-4 PM (Thu PHM101) -->
+                <tr>
+                    <td class="time-col">2-4 PM</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td>
+                        <div class="session lecture">
+                            <div class="session-title">📚 PHM101</div>
+                            <div class="session-detail">In Person</div>
+                        </div>
+                    </td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                </tr>
+                
+                <!-- 2-5 PM (Sat Integration) -->
+                <tr>
+                    <td class="time-col">2-5 PM</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td>
+                        <div class="session integration">
+                            <div class="session-title">🔄 INTEGRATION</div>
+                            <div class="session-detail">Excel → Python</div>
+                            <div class="session-detail">Analyze + Visualize</div>
+                        </div>
+                    </td>
+                    <td class="empty">-</td>
+                </tr>
+                
+                <!-- 3-4 PM (Tue PHI102) -->
+                <tr>
+                    <td class="time-col">3-4 PM</td>
+                    <td class="empty">-</td>
+                    <td>
+                        <div class="session lecture">
+                            <div class="session-title">📚 PHI102</div>
+                            <div class="session-detail">Online</div>
+                        </div>
+                    </td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                </tr>
+                
+                <!-- 3-4:30 PM (Sun Gym) -->
+                <tr>
+                    <td class="time-col">3-4:30 PM</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td>
+                        <div class="session gym">
+                            <div class="session-title">💪 GYM</div>
+                        </div>
+                    </td>
+                </tr>
+                
+                <!-- 3-5 PM (Mon Python, Wed WebDev, Fri PHM104) -->
+                <tr>
+                    <td class="time-col">3-5 PM</td>
+                    <td>
+                        <div class="session python-tutorial">
+                            <div class="session-title">🔴 PYTHON</div>
+                            <div class="session-detail">Tutorial 🎓</div>
+                            <div class="session-detail">Data Cleaning</div>
+                        </div>
+                    </td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td>
+                        <div class="session lecture">
+                            <div class="session-title">📚 PHM104</div>
+                            <div class="session-detail">In Person - EF4</div>
+                        </div>
+                    </td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                </tr>
+                
+                <!-- 3-5:30 PM (Wed WebDev Project) -->
+                <tr>
+                    <td class="time-col">3-5:30 PM</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td>
+                        <div class="session webdev-tutorial">
+                            <div class="session-title">🔵 WEB DEV</div>
+                            <div class="session-detail">Project 🎓🔨</div>
+                            <div class="session-detail">Health Tip App</div>
+                        </div>
+                    </td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                </tr>
+                
+                <!-- 4:15-6 PM (Tue Python Drill) -->
+                <tr>
+                    <td class="time-col">4:15-6 PM</td>
+                    <td class="empty">-</td>
+                    <td>
+                        <div class="session python-drill">
+                            <div class="session-title">🔴 PYTHON</div>
+                            <div class="session-detail">Drill 🔨</div>
+                            <div class="session-detail">3 Cleaning Scripts</div>
+                        </div>
+                    </td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                </tr>
+                
+                <!-- 5-6 PM (Thu UCU110) -->
+                <tr>
+                    <td class="time-col">5-6 PM</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td>
+                        <div class="session lecture">
+                            <div class="session-title">📚 UCU110</div>
+                            <div class="session-detail">In Person - OML3,4</div>
+                        </div>
+                    </td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                </tr>
+                
+                <!-- 5-7 PM (Wed HEH100) -->
+                <tr>
+                    <td class="time-col">5-7 PM</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td>
+                        <div class="session lecture">
+                            <div class="session-title">📚 HEH100</div>
+                            <div class="session-detail">In Person - HHA1</div>
+                        </div>
+                    </td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                </tr>
+                
+                <!-- 5:15-6:45 PM (Sat Gym) -->
+                <tr>
+                    <td class="time-col">5:15-6:45</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td>
+                        <div class="session gym">
+                            <div class="session-title">💪 GYM</div>
+                        </div>
+                    </td>
+                    <td class="empty">-</td>
+                </tr>
+                
+                <!-- 5:30-7 PM (Fri HSM Block 2) -->
+                <tr>
+                    <td class="time-col">5:30-7 PM</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td>
+                        <div class="session hsm">
+                            <div class="session-title">📖 HSM Block 2</div>
+                            <div class="session-detail">PHM104 Review</div>
+                        </div>
+                    </td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                </tr>
+                
+                <!-- 6-7 PM (Sun HSM Light) -->
+                <tr>
+                    <td class="time-col">6-7 PM</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td>
+                        <div class="session hsm">
+                            <div class="session-title">📖 HSM Block 2</div>
+                            <div class="session-detail">Light Review</div>
+                        </div>
+                    </td>
+                </tr>
+                
+                <!-- 6-7:30 PM (Mon/Tue/Thu HSM Block 2) -->
+                <tr>
+                    <td class="time-col">6-7:30 PM</td>
+                    <td>
+                        <div class="session hsm">
+                            <div class="session-title">📖 HSM Block 2</div>
+                            <div class="session-detail">PHM101 Vaia</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="session hsm">
+                            <div class="session-title">📖 HSM Block 2</div>
+                            <div class="session-detail">UCU110 Vaia</div>
+                        </div>
+                    </td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                </tr>
+                
+                <!-- 6:30-7:15 PM (Thu HSM Light Review) -->
+                <tr>
+                    <td class="time-col">6:30-7:15</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td>
+                        <div class="session hsm">
+                            <div class="session-title">📖 HSM Block 2</div>
+                            <div class="session-detail">PHM101 Light Review</div>
+                        </div>
+                    </td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                </tr>
+                
+                <!-- 7:15-8:45 PM (Wed HSM Block 2) -->
+                <tr>
+                    <td class="time-col">7:15-8:45</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td>
+                        <div class="session hsm">
+                            <div class="session-title">📖 HSM Block 2</div>
+                            <div class="session-detail">HEH100 Vaia</div>
+                        </div>
+                    </td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                </tr>
+                
+                <!-- 8:45-9:45 PM (Wed Assignments) -->
+                <tr>
+                    <td class="time-col">8:45-9:45</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td>
+                        <div class="session assignment">
+                            <div class="session-title">📋 ASSIGNMENTS</div>
+                            <div class="session-detail">Group Work</div>
+                        </div>
+                    </td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                    <td class="empty">-</td>
+                </tr>
+                
+                <!-- 9-10 PM (Evening work slots) -->
+                <tr>
+                    <td class="time-col">9-10 PM</td>
+                    <td>
+                        <div class="session webdev-tutorial">
+                            <div class="session-title">🔵 WEB DEV</div>
+                            <div class="session-detail">Tutorial 🎓</div>
+                            <div class="session-detail">Flask Intro</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="session excel-drill">
+                            <div class="session-title">🟢 EXCEL</div>
+                            <div class="session-detail">Drill 🔨</div>
+                            <div class="session-detail">Clinic Dashboard</div>
+                        </div>
+                    </td>
+                    <td class="empty">-</td>
+                    <td>
+                        <div class="session flex">
+                            <div class="session-title">💪 FLEX</div>
+                            <div class="session-detail">Catch-up</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="session docs">
+                            <div class="session-title">📝 DOCS</div>
+                            <div class="session-detail">Documentation</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="session webdev-drill">
+                            <div class="session-title">🔵 WEB DEV</div>
+                            <div class="session-detail">Drill 🔨</div>
+                            <div class="session-detail">Flask Routes</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="session planning">
+                            <div class="session-title">📋 PLANNING</div>
+                            <div class="session-detail">Week Review</div>
+                            <div class="session-detail">Week 8 Goals77</div>
