@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 
 patient_ids = np.array([f'P{i:03d}' for i in range(1, 501)])
 departments = np.array(['Emergency', 'Outpatient', 'Internal', 'Surgery', 'Gynaecology', 'Pediatrics', 'Psychiatry'])
@@ -37,5 +38,12 @@ summary = df.groupby('department')[['arrival_to_triage', 'triage_to_doctor', 'to
     ['mean', 'median', lambda x: x.quantile(0.9)]
 ).rename(columns={'<lambda_0>': 'p90'})
 
-print(summary)
-summary.to_csv('reports/wait-time-summary.csv')
+# print(summary)
+
+# summary.to_csv('reports/wait-time-summary.csv')
+
+
+# Time to visualize!
+dept_means = df.groupby('department')['total_wait'].mean()
+dept_means.plot(kind='bar', figsize=(10, 6), color='steelblue')
+plt.title('Mean Total Wait Time by Department')
