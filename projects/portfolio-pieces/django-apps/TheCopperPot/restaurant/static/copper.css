@@ -14,29 +14,130 @@
 --walnut: hsla(28, 65%, 26%, 1);
 }
 
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*! Styles for the navigation bar */
 nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Oswald', sans-serif;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background: var(--alabaster-grey) transparent;
+    transition: background 0.3s ease;
     padding: 1rem 2rem;
-    margin-bottom: 1.5rem;
-    border: none;
-    border-radius: 20px;
+    border-radius: 0 0 25px 25px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+    margin-right: 4rem;
+    padding: 0;
+
+}
+
+nav ul li a:hover {
+    background-color: rgba(12, 6, 2, 0.95);
+    cursor: pointer;
+}
+
+nav ul li a {
+    color: var(--alabaster-grey);
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 10px;
+    padding: 20px 20px;
+}
+
+/** Making the nav appear in pages without hero */
+nav.solid {
+    background: rgba(12, 6, 2, 0.9) !important;
+}
+body {
+    padding-top: 80px;
+}
+.hero {
+    margin-top: -80px;
+}
+
+
+/*! Styles for the Hero image */
+.hero::before{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 0;
+}
+
+.hero h1, .hero h3 {
+    position: relative;
+    z-index: 1;
 }
 
 .hero {
-    background-image: url('/TheCopperPot/pics/restaurant-hero.jpg');
+    border-radius: 20px 20px 0 0;
+    position: relative;
     background-size: cover;
     background-position: center;
-    height: 100vh;
-    
+    height: 90vh;
 
-    /* center the content inside */
+    /** center the content inside */
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     color: var(--alabaster-grey);
     text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-family: 'Oswald', cursive;
+}
+.hero h3 {
+    font-family: cursive;
+}
+
+ /*! Let's make the main content sit behind the image */
+ main {
+    position: relative;
+    z-index: 2;
+    background: white;
+    border-radius: 40px 40px 0 0;
+    margin-top: -40px;
+    padding: 2rem;
+ }
+
+ /*! Cards for the featured food */
+ .featured {
+    height: 110px;
+    width: 110px;
+    border-radius: 40%;
+ }
+
+dt {
+    font-size: 1.3rem;
+}
+
+dd {
+    padding: 30px 0;
+    padding-left: 5px;
+}
+
+footer {
+    background-color: var(--olive);
+    border-radius: 25px 25px 0 0;
+    padding: 20px;
 }

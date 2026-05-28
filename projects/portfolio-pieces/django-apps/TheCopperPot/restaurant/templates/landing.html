@@ -1,16 +1,69 @@
 {% extends "base.html" %}
+{% load static %}
+
 
 {% block content %}
-    <header class="hero">
+    <header class="hero" style="background-image: url('{% static 'pics/restaurant-hero.jpg' %}')">
         <h1> The Copper Pot</h1>
         <h3>The Copper Pot — Where Nairobi Comes to Unwind and Eat Well</h3>       
     </header>
     <main>
         <article>
-            <h2>Welcome</h2>
+            <h1>Welcome</h1>
             <p>
                 Welcome to The Copper Pot, a warm and modern Nairobi dining spot built for good conversations, satisfying meals, and memorable evenings. From rich Kenyan flavors to internationally inspired dishes, we serve fresh, carefully prepared food in a relaxed atmosphere that feels both stylish and comfortable. Whether you're meeting friends, having a quiet dinner, or grabbing lunch after work, The Copper Pot brings people together over food worth coming back for.
             </p>
+            <pre>
+
+            </pre>
+            <h2>Featured Dishes</h2>
+            <h3>Smoky Barbecue Feast</h3>
+            <img class="featured" src="{% static 'pics/bbq.jpg' %}" alt="Barbecue">
+            <p>Slow-grilled over open flames and brushed with our signature house glaze, our Barbecue dishes deliver the 
+                perfect balance of smoky flavor, tenderness and spice. Every bite is rich juicy and deeply satisfying - the kind
+                of meal that turns casual dinners into unforgettable cravings.
+            </p>
+
+            <h3>Signature Beef Experience</h3>
+            <img class="featured" src="{% static 'pics/beef.jpg' %}" alt="Beef">
+            <p>
+                Carefully selected cuts of beef are seasoned with fresh herbs and expertly cooked to lock in bold flavor and tenderness.
+                Served hot with savory sides and rich sauces, our beef dishes are crafted for guests who appreciate hearty meals done right.
+            </p>
+
+            <h3>Creamy Italian-Inspired Pasta</h3>
+            <img class="featured" src="{% static 'pics/pasta.jpg' %}" alt="Pasta">
+            <p>
+                Our pasta combines silky sauces, perfectly cooked pasta and fresh ingredients to create comforting plates full of flavor.
+                From creamy parmesan finishes to slow-roasted vegetables and aromatic herbs, every forkful is warm, rich and irresistably
+                satisfying.
+            </p>
+            <pre>
+
+            </pre>
+            <h2>A Taste Worth Gathering For</h2>
+            <p>
+                At The Copper Pot, every meal is designed to bring people together. From carefully selected ingredients to thoughtfully
+                prepared dishes, we focus on creating flavors that feel rich, comforting and memorable. Whether you're enjoying a quiet lunch,
+                an evening out with friends or a special celebration, our goal is simple - serve food that makes every visit feel worthwhile.
+            </p>
+            <p>
+                With warm hospitality, modern interiors and a menu inspired by both local and international cuisine, The Copper Pot offers a
+                dining experience that feels effortlessly welcoming in the heart of Nairobi.
+            </p>
+
         </article>
     </main>
+
+
+    <footer id="footer">
+       <ul>
+        <h3>Hours available</h3>
+        <li>6:00AM -- 9:00PM</li>
+
+        <h3>Follow Us</h3>
+        <li><a href="copperpot144@gmail.com">copperpot144@gmail.com</a></li>
+        <li><a href="copper.ig.profile">IG: copperPotLife</a></li>
+       </ul>
+    </footer>
 {% endblock content %}

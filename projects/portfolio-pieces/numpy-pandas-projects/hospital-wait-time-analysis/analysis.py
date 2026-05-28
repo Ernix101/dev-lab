@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 patient_ids = np.array([f'P{i:03d}' for i in range(1, 501)])
 departments = np.array(['Emergency', 'Outpatient', 'Internal', 'Surgery', 'Gynaecology', 'Pediatrics', 'Psychiatry'])
 
+#! Important: setting the seed for consistency
+np.random.seed(1)
 #! Generates random dates
 start = pd.Timestamp('2025-05-01')
 end = pd.Timestamp('2025-05-31')
@@ -44,6 +46,38 @@ summary = df.groupby('department')[['arrival_to_triage', 'triage_to_doctor', 'to
 
 
 # Time to visualize!
+#* First, the bar chart
 dept_means = df.groupby('department')['total_wait'].mean()
 dept_means.plot(kind='bar', figsize=(10, 6), color='steelblue')
 plt.title('Mean Total Wait Time by Department')
+plt.xlabel('Department')
+plt.ylabel('Wait Time (minutes)')
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout()
+plt.savefig('charts/dept_wait_bar.png')
+# plt.show()
+
+#* Second, the Histogram
+plt.figure(figsize=(10, 6))
+plt.hist(df['total_wait'], bins=30, color='coral', edgecolor='black')
+plt.title('Distribution of Total Patient Wait Times')
+plt.xlabel("Total Wait Time (minutes)")
+plt.ylabel("Number of Patients")
+plt.tight_layout()
+plt.savefig('charts/wait_distribution_hist.png')
+# plt.show()
+
+
+#* Les Box Plots
+departments = df['department'].unique()
+data_by_dept = [df[df['department'] == dept]['total_wait'].values for dept in departments]
+
+plt.figure(figsize=(12, 6))
+plt.boxplot(data_by_dept, labels=departments)
+plt.title('Total Wait Time Distribution by Department')
+plt.xlabel('Department')
+plt.ylabel('Wait Time (minutes)')
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout()
+plt.savefig('charts/wait_boxplot.png')
+plt.show()
