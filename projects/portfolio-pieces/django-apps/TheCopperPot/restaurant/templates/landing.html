@@ -9,37 +9,43 @@
     </header>
     <main>
         <article>
-            <h1>Welcome</h1>
+            <h1 class='welcome'>Welcome</h1>
             <p>
                 Welcome to The Copper Pot, a warm and modern Nairobi dining spot built for good conversations, satisfying meals, and memorable evenings. From rich Kenyan flavors to internationally inspired dishes, we serve fresh, carefully prepared food in a relaxed atmosphere that feels both stylish and comfortable. Whether you're meeting friends, having a quiet dinner, or grabbing lunch after work, The Copper Pot brings people together over food worth coming back for.
             </p>
             <pre>
 
             </pre>
+
+            {% comment %} * Our featured dishes {% endcomment %}
             <h2>Featured Dishes</h2>
-            <h3>Smoky Barbecue Feast</h3>
-            <img class="featured" src="{% static 'pics/bbq.jpg' %}" alt="Barbecue">
-            <p>Slow-grilled over open flames and brushed with our signature house glaze, our Barbecue dishes deliver the 
-                perfect balance of smoky flavor, tenderness and spice. Every bite is rich juicy and deeply satisfying - the kind
-                of meal that turns casual dinners into unforgettable cravings.
-            </p>
+            <div class="menu-grid">
+                <div class="dish-card">
+                    <img src="{% static 'pics/bbq.jpg' %}" alt="Barbecue">
+                    <div class="dish-info">
+                        <h2>Smoky Barbecue Feast</h2>
+                        <p>Slow-grilled over open flames and brushed with our signature house glaze...</p>
+                    </div>
+                </div>
 
-            <h3>Signature Beef Experience</h3>
-            <img class="featured" src="{% static 'pics/beef.jpg' %}" alt="Beef">
-            <p>
-                Carefully selected cuts of beef are seasoned with fresh herbs and expertly cooked to lock in bold flavor and tenderness.
-                Served hot with savory sides and rich sauces, our beef dishes are crafted for guests who appreciate hearty meals done right.
-            </p>
+                <div class="dish-card">
+                    <img src="{% static 'pics/beef.jpg' %}" alt="Beef">
+                    <div class="dish-info">
+                        <h2>Signature Beef Experience</h2>
+                        <p>Carefully selected cuts of beef seasoned with fresh herbs...</p>
+                    </div>
+                </div>
 
-            <h3>Creamy Italian-Inspired Pasta</h3>
-            <img class="featured" src="{% static 'pics/pasta.jpg' %}" alt="Pasta">
-            <p>
-                Our pasta combines silky sauces, perfectly cooked pasta and fresh ingredients to create comforting plates full of flavor.
-                From creamy parmesan finishes to slow-roasted vegetables and aromatic herbs, every forkful is warm, rich and irresistably
-                satisfying.
-            </p>
+                <div class="dish-card">
+                    <img src="{% static 'pics/pasta.jpg' %}" alt="Pasta">
+                    <div class="dish-info">
+                        <h2>Creamy Italian-Inspired Pasta</h2>
+                        <p>Silky sauces, perfectly cooked pasta and fresh ingredients...</p>
+                    </div>
+                </div>
+            </div>
             <pre>
-
+                
             </pre>
             <h2>A Taste Worth Gathering For</h2>
             <p>

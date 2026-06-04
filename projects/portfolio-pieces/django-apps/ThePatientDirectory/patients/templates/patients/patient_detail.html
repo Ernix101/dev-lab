@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ patient.name }}</title>
+</head>
+<body>
+    <h1>{{ patient.name }}</h1>
+    <p>Date of Birth: {{ patient.date_of_birth }}</p>
+    <p>Contact: {{ patient.contact }}</p>
+    <p>Blood Type: {{ patient.blood_type }}</p>
+
+    <a href="{% url 'patient_list' %}">Back to List</a>
+    <a href="{% url 'patient_delete' patient.pk %}">Delete Patient</a>
+</body>
+</html>
