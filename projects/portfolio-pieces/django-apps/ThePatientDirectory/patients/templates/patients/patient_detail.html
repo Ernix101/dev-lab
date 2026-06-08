@@ -1,17 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ patient.name }}</title>
-</head>
-<body>
-    <h1>{{ patient.name }}</h1>
-    <p>Date of Birth: {{ patient.date_of_birth }}</p>
-    <p>Contact: {{ patient.contact }}</p>
-    <p>Blood Type: {{ patient.blood_type }}</p>
+{% extends "patients/base.html" %}
+{% load static %}
 
-    <a href="{% url 'patient_list' %}">Back to List</a>
-    <a href="{% url 'patient_delete' patient.pk %}">Delete Patient</a>
+{% block title %}{{ patient.name }}{% endblock %}
+
+{% block content %}
+
+<body class="detail-body">
+    <div class="profile-card">
+        <img class='profile-img' src="{% static 'images/account.svg' %}" alt="Patient image">
+        <h1>{{ patient.name }}</h1>
+
+        <ul class="profile-details">
+            <li><strong>Date of Birth:</strong> {{ patient.date_of_birth }}</li>
+            <li><strong>Contact:</strong> {{ patient.contact }}</li>
+            <li><strong>Blood Type:</strong> {{ patient.blood_type }}</li>
+        </ul>
+        <div class="profile-btns">
+            <a  href="{% url 'patient_list' %}">Back</a>
+            <a  href="{% url 'patient_update' patient.pk %}">Update</a>
+            <a  href="{% url 'patient_delete' patient.pk %}">Delete</a>
+        </div>
+        
+    </div>
 </body>
-</html>
+   
+    
+    
+{% endblock content %}

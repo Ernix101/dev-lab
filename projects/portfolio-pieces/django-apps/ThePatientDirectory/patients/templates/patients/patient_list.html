@@ -1,23 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patient Directory</title>
-</head>
-<body>
-    <h1>Patient Directory</h1>
-    <a href="{% url 'patient_create' %}">Add a New Patient</a>
+{% extends "patients/base.html" %}
+{% load static %}
 
-    <ul>
+{% block title %}Patient Directory{% endblock %}
+
+{% block content %}
+    <h1>Welcome</h1>
+    <a href="{% url 'patient_create' %} " class='btn'>Add a New Patient</a>
+
+    <form method="GET" class="search-form">
+        <input type="text" name="q" placeholder="Enter patient to search">
+        <button type="submit">Find</button>
+    </form>
+
+    <ul class="patient-list">
         {% for patient in patients %}
-            <li>
+            <li class='patient-card'>
                 <a href="{% url 'patient_detail' patient.pk %}">{{ patient.name }}</a>
-                - {{ patient.blood_type }}
+                <span>{{ patient.blood_type }}</span>
             </li>
         {% empty %}
             <li>No Patients recorded yet.</li>
         {% endfor %}
     </ul>
-</body>
-</html>
+{% endblock content %}

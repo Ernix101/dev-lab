@@ -4,8 +4,12 @@ from .forms import PatientForm
 
 # Create your views here.
 def patient_list(request):
-    patients = Patient.objects.all()
-    return render(request, 'patients/patient_list.html', {'patients': patients})
+    query = request.GET.get('q', '')
+    if query:
+        patients = Patient.objects.filter( name__icontains=query )
+    else:
+        patients = Patient.objects.all()
+    return render(request, 'patients/patient_list.html', {'patients': patients, 'query': query})
 
 
 def patient_detail(request, pk):
@@ -24,6 +28,21 @@ def patient_create(request):
     return render(request, 'patients/patient_form.html', {'form': form})
     
 
+#! How you can update the existing patient
+def patient_update(request, pk):
+    patient = get_object_or_404(Patient, pk=pk)
+    if request.method == 'POST':
+        form = PatientForm(request.POST, instance=patient)
+        if form.is_valid():
+            form.save()
+            return redirect('patient_list')
+    else:
+        form = PatientForm(instance=patient)
+    return render(request, 'patients/patient_form.html', {'form': form})
+
+
+
+# ! A way to delete the patient instance created
 def patient_delete(request, pk):
     patient = get_object_or_404(Patient, pk=pk)
     if request.method == 'POST':

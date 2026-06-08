@@ -8,7 +8,6 @@ class Patient(models.Model):
         ('AB+', 'AB+'), ('AB-', 'AB-'),
         ('O+', 'O+'), ('O-', 'O-'),
     ]
-
     name = models.CharField(max_length=100)
     date_of_birth = models.DateField()
     contact = models.CharField(max_length=15)
