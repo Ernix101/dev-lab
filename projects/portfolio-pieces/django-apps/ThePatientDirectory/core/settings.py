@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-9*4(yuitbn*2p)87t$&17$xlilb_&lawt0r@9rgg$d7kn$@$pb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['thepatientdirectory.up.railway.app', '127.0.0.1']
 
 
 # Application definition
@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'core.urls'
@@ -117,3 +118,15 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'patients' / 'static']
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+CSRF_TRUSTED_ORIGINS = ['https://thepatientdirectory.up.railway.app']
+
+
+import dj_database_url
+import os
+
+DATABASE_URL = os.environ.get('DATABASE_URL')
+if DATABASE_URL:
+    DATABASES['default'] = dj_database_url.config(default=DATABASE_URL)

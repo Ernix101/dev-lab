@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Patient
 from .forms import PatientForm
+from django.core.paginator import Paginator
 
 # Create your views here.
 def patient_list(request):
@@ -9,14 +10,24 @@ def patient_list(request):
         patients = Patient.objects.filter( name__icontains=query )
     else:
         patients = Patient.objects.all()
-    return render(request, 'patients/patient_list.html', {'patients': patients, 'query': query})
+
+    paginator = Paginator(patients, 3)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'patients/patient_list.html', {
+        'patients': page_obj, 
+        'query': query
+    })
 
 
+# ! view a patient's DETAILS
 def patient_detail(request, pk):
     patient = get_object_or_404(Patient, pk=pk)
     return render(request, 'patients/patient_detail.html', {'patient': patient})
 
 
+#! CREATE a patient
 def patient_create(request):
     if request.method == 'POST':
         form = PatientForm(request.POST)
@@ -28,7 +39,7 @@ def patient_create(request):
     return render(request, 'patients/patient_form.html', {'form': form})
     
 
-#! How you can update the existing patient
+#! How you can UPDATE the existing patient
 def patient_update(request, pk):
     patient = get_object_or_404(Patient, pk=pk)
     if request.method == 'POST':
@@ -42,7 +53,7 @@ def patient_update(request, pk):
 
 
 
-# ! A way to delete the patient instance created
+# ! A way to DELETE the patient instance created
 def patient_delete(request, pk):
     patient = get_object_or_404(Patient, pk=pk)
     if request.method == 'POST':

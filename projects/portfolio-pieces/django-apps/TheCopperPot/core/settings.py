@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-c(20cd_4^y*^((b(2_9gi348$+(l9rz05hbma)b7_l406&5)y8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['portfolio-pieces-production.up.railway.app', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['thecopperpot.up.railway.app', '127.0.0.1']
 
 
 # Application definition
@@ -124,3 +124,4 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATIC_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+CSRF_TRUSTED_ORIGINS = ['https://thecopperpot.up.railway.app']

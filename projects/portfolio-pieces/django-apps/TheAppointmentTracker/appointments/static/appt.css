@@ -1,0 +1,396 @@
+:root {
+  /* Base surfaces */
+  --bg-page: #F7F7FB;
+  --bg-surface: #FFFFFF;
+  --bg-sidebar: #FFFFFF;
+
+  /* Primary brand */
+  --primary: #6C5CE7;
+  --primary-hover: #5B4BD6;
+  --primary-light: #EDEBFC;   /* for active-state backgrounds, subtle highlights */
+
+  /* Text */
+  --text-primary: #1E1B2E;
+  --text-secondary: #6B7280;
+  --text-muted: #9CA3AF;
+
+  /* Borders / dividers */
+  --border-light: #b9b9b9;
+  --border-default: #aaaaad;
+
+  /* Status colors (for "today at a glance" dots + general status) */
+  --status-blue: #4F86F7;
+  --status-green: #22C55E;
+  --status-purple: #A78BFA;
+  --status-yellow: #F5B93D;
+  --status-red: #F45B69;
+
+  /* Appointment type tints — matches actual TYPE_CHOICES */
+/* Consultation — purple family */
+--appt-consultation-bg: #d6c6ff;
+--appt-consultation-border: #A78BFA;
+--appt-consultation-text: #5B21B6;
+
+/* Follow-up — orange family */
+--appt-followup-bg: #FFE4B8;
+--appt-followup-border: #FBBF24;
+--appt-followup-text: #92400E;
+
+/* Checkup — blue family */
+--appt-checkup-bg: #C7DFFF;
+--appt-checkup-border: #60A5FA;
+--appt-checkup-text: #1E40AF;
+
+/* Referral — red/rose family */
+--appt-referral-bg: #FBCFD8;
+--appt-referral-border: #FB7185;
+--appt-referral-text: #9F1239;
+
+/* Vaccination — green family */
+--appt-vaccination-bg: #C9F2D7;
+--appt-vaccination-border: #4ADE80;
+--appt-vaccination-text: #166534;
+
+/* Procedure — yellow/gold family */
+--appt-procedure-bg: #FDF0B0;
+--appt-procedure-border: #EAB308;
+--appt-procedure-text: #854D0E;
+
+/* Post-procedure — indigo family */
+--appt-postprocedure-bg: #D7D9FA;
+--appt-postprocedure-border: #818CF8;
+--appt-postprocedure-text: #3730A3;
+
+/* radius variables */
+--radius-sm: 6px;
+--radius-md: 10px;
+--radius-lg: 16px;
+
+/* box-shadow variables */
+--shadow-md: 0 6px 20px rgb(141, 141, 141);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas: 
+  "topbar topbar"
+  " sidebar content";
+}
+.main-content {
+  grid-area: content;
+}
+svg {
+  fill: black;
+}
+.calendar-svg {
+  fill: none;
+}
+
+/* ! Navigation & Pop-up styles */
+.top-bar {
+  grid-area: topbar;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-light);
+  padding: 5px 24px;
+}
+.top-bar a {
+  padding-right: 18px;
+  text-decoration: none;
+  color: black;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.top-bar-title {
+  font-family: cursive;
+}
+.menu-bar {
+  margin-left: 1.2rem;
+}
+.menu-bar a{
+  flex-direction: row;
+  justify-content: center;
+  transition: 300ms ease;
+  padding: 0.6rem;
+}
+.menu-bar a.active{
+  padding: 0.6rem;
+  border: 1px solid gray;
+  border-radius: 0.4rem;
+  box-shadow: var(--shadow-md);
+  color: var(--primary-hover);
+}
+.menu-bar a:hover{
+  padding: 0.6rem;
+  border-radius: 0.4rem;
+  box-shadow: 0 8px 30px rgb(141, 141, 141);
+}
+.side-bar {
+  grid-area: sidebar;
+
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-top: 2.5rem;
+}
+
+.side-bar {
+  padding: 9px;
+  background: rgb(216, 215, 215);
+  border-radius: 9px;
+}
+.side-bar a {
+  max-width: 30px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  transition: 300ms ease-out;
+}
+.side-bar a:hover {
+  scale: 1.3;
+  border: 1px solid var(--border-default);
+  background: var(--primary-light);
+  color: var(--primary);
+}
+.side-bar a.active {
+  scale: 1.3;
+  border: 1px solid var(--border-default);
+  background: var(--primary-light);
+  color: var(--primary);
+}
+.side-bar svg .top-bar svg{
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+}
+.anchors {
+  margin-bottom: auto;
+}
+.nav-arrow{
+  text-decoration: none;
+  color: var(--text-secondary);
+  border-radius: var(--radius-sm);
+}
+.nav-arrow svg {
+  scale: 1.1;
+  padding: 0.2rem;
+  transition: 300ms ease;
+}
+.nav-arrow svg:hover {
+  scale: 1.4;
+  background: var(--border-light);
+  border-radius: 50%;
+}
+
+
+
+/* ! Card styles */
+.appointment-card {
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  margin-bottom: 6px;
+  font-size: 0.85rem;
+  border-left: 3px solid transparent;
+}
+.appointment-card:hover{
+  cursor: pointer;
+}
+.appointment-card .appt-time {
+  font-weight: 600;
+  display: block;
+}
+.appointment-card .appt-patient {
+  font-weight: 500;
+}
+.appt-type {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.75rem;
+  margin-top: 4px;
+}
+.visit-type {
+  font-size: 1rem;
+}
+.type-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  display: inline-block;
+}
+/** POP-UP cards */
+.patient-drawer {
+  position: fixed;
+  top: 70px;
+  right: 0;
+  width: 340px;
+  height: 100vh;
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-md);
+  padding: 24px;
+  overflow-y: auto;
+  z-index: 100;
+  transform: translateX(100%);
+  transition: transform 250ms ease;
+}
+.patient-drawer .hidden {
+  transform: translateX(100%);
+}
+.patient-drawer:not(.hidden) {
+  transform: translateX(0);
+}
+.drawer-close:hover{
+  cursor: pointer;
+}
+.x-container {
+  width: auto;
+  display: flex;
+  justify-content: flex-end;
+}
+.profile-area {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+}
+.mid-area {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.mid-area ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.profile-svg {
+  padding: 8px;
+  width: 70px;
+  height: 70px;
+  fill: gray;
+}
+.status-label {
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  margin-bottom: 6px;
+  font-size: 0.85rem;  
+}
+
+
+/* ! Varying visit-type classes by django so ignore errors */
+.appt-consultation {
+  background: var(--appt-consultation-bg);
+  color: var(--appt-consultation-text);
+  border-left-color: var(--appt-consultation-border);
+}
+.appt-follow_up {
+  background: var(--appt-followup-bg);
+  color: var(--appt-followup-text);
+  border-left-color: var(--appt-followup-border);
+}
+.appt-checkup {
+  background: var(--appt-checkup-bg);
+  color: var(--appt-checkup-text);
+  border-left-color: var(--appt-checkup-border);
+}
+.appt-referral {
+  background: var(--appt-referral-bg);
+  color: var(--appt-referral-text);
+  border-left-color: var(--appt-referral-border);
+}
+.appt-vaccination {
+  background: var(--appt-vaccination-bg);
+  color: var(--appt-vaccination-text);
+  border-left-color: var(--appt-vaccination-border);
+}
+.appt-procedure {
+  background: var(--appt-procedure-bg);
+  color: var(--appt-procedure-text);
+  border-left-color: var(--appt-procedure-border);
+}
+.appt-post_procedure {
+  background: var(--appt-postprocedure-bg);
+  color: var(--appt-postprocedure-text);
+  border-left-color: var(--appt-postprocedure-border);
+}
+
+/* ! stats labels for the drawer (using Varying classes by django so ignore errors) */
+.status-completed {
+  background: var(--status-green);
+  color: white;
+}
+.status-scheduled {
+  background: var(--status-blue);
+  color: white;
+}
+.status-canceled {
+  background: var(--status-red);
+  color: white;
+}
+.status-no_show {
+  background: var(--status-yellow);
+  color: var(--text-primary);
+}
+
+
+/* ! Grid layout for calendar page */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 12px;
+  padding: 16px;
+}
+
+.today-banner {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-primary);
+  font-weight: 600;
+  padding-top: 10px;
+}
+.day-column {
+  background: var(--bg-surface);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+  border-right: 1px solid var(--border-light);
+  padding: 12px;
+  padding-top: 0;
+  min-height: 400px;
+}
+.day-column:last-child {
+  border-right: none;
+}
+
+.day-column h3 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+  text-align: center;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-light);
+}
+

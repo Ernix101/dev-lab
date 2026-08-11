@@ -22,4 +22,16 @@
             <li>No Patients recorded yet.</li>
         {% endfor %}
     </ul>
+
+    <div class="pagination">
+        {% if patients.has_previous %}
+            <a href="?page={{ patients.previous_page_number }}&q={{ query }}">Previous</a>
+        {% endif %}
+
+        <span>Page {{ patients.number }} of {{ patients.paginator.num_pages }}</span>
+
+        {% if patients.has_next %}
+            <a href="?page={{ patients.next_page_number }}&q={{ query }}">Next</a>
+        {% endif %}
+    </div>
 {% endblock content %}

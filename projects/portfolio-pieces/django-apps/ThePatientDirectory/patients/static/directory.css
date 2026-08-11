@@ -182,7 +182,8 @@ a:hover {
 }
 
 .image-side {
-    flex: 1;  
+    flex: 1;
+    position: relative;
 }
 .image-side img {
     height: 100%;
@@ -196,8 +197,8 @@ a:hover {
     content: '';
     position: absolute;
     background: rgba(0, 0, 0, 0.45);
-    height: 645px;
-    width: 375px;
+    height: 100%;
+    width: 100%;
     border-radius: 18px 0 0 18px;
     z-index: 1;
 }
@@ -224,6 +225,7 @@ a:hover {
     padding: 4rem 3rem;
 }
 
+/* ! Error for contacts addition at form submission */
 /* ! Auto added by django */
 .errorlist {
     list-style: none;
@@ -239,6 +241,7 @@ a:hover {
     border-radius: 4px;
 }
 
+/* ! Search bar styling */
 .search-form {
     display: flex;
     gap: 0.5rem;
@@ -266,4 +269,22 @@ a:hover {
 }
 .search-form button:hover {
     background-color: var(--deep-blue);
+}
+
+/* ! pagination styling */
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+.pagination a {
+    background-color: var(--blue-slate);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 600;
+}
+.pagination span {
+    color: var(--taupe-grey);
 }
