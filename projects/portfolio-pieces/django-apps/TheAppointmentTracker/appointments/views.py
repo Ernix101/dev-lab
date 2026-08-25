@@ -1,11 +1,14 @@
 from django.shortcuts import render
 from datetime import date, timedelta
 from collections import defaultdict
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from django.views.decorators.http import require_POST
 from .models import Appointment
+from django.http import JsonResponse
+from django.db.models import Q
 
 
-# Create your views here.
+# ------------------------------------------------Page based views and their features------------------------------------------------
 # ! CALENDAR PAGE VIEW
 def calendar_view(request):
     today = date.today()
@@ -22,7 +25,7 @@ def calendar_view(request):
 
     end_of_week = start_of_week + timedelta(days=6)
 
-    # * confirming which week is current to display in the calendar
+    #* confirming which week is current to display in the calendar
     is_current_week = (start_of_week == today - timedelta(days=today.weekday()))
 
     appointments = Appointment.objects.filter(
@@ -30,14 +33,22 @@ def calendar_view(request):
         start_time__date__lte=end_of_week,
     ).select_related('patient', 'provider')
 
+    for appt in appointments:
+        minutes_past_6am = (appt.start_time.hour - 6) * 60 + appt.start_time
+        appt.top_position = minutes_past_6am
+
     appointments_by_day = defaultdict(list)
     for appt in appointments:
         day = appt.start_time.date()
         appointments_by_day[day].append(appt)
+        
 
     # * Adding a set of pre-made days ie. Monday to Sunday for the rendered final list
     week_days = [start_of_week + timedelta(days=i) for i in range(7)]
     schedule = [(day, appointments_by_day.get(day, [])) for day in week_days]
+
+    hours = [f"{h}:00" for h in range(6, 21)]   # 6AM to 8PM, adjust range if needed
+    context['hours'] = hours
 
     stats = {
         'total': todays_appointments.count(),
@@ -69,12 +80,14 @@ def dashboard_view(request):
     }
     return render(request, 'appointments/dashboard.html', context)
 
+
 # ! PATIENTS PAGE VIEW
 def patients_view(request):
     context = {
             'active_page': 'patients',
         }
     return render(request, 'appointments/patients.html', context)
+
 
 # ! PROVIDERS PAGE VIEW
 def providers_view(request):
@@ -83,6 +96,7 @@ def providers_view(request):
         }
     return render(request, 'appointments/providers.html', context)
 
+
 # ! ANALYTICS PAGE VIEW
 def analytics_view(request):
     context = {
@@ -90,9 +104,52 @@ def analytics_view(request):
         }
     return render(request, 'appointments/analytics.html', context)
 
+
 # ! PROFILE PAGE VIEW
 def profile_view(request):
     context = {
             'active_page': 'profile',
         }
     return render(request, 'appointments/profile.html', context)
+
+
+
+
+
+# -------------------------------------------------function views for features---------------------------------------------------------------
+# ! Way to update an appointment's status
+@require_POST
+def update_appointment_status(request, appointment_id, new_status):
+    appointment = get_object_or_404(Appointment, pk=appointment_id)
+    appointment.status = new_status
+    appointment.save()
+    return redirect('calendar')
+
+
+# ! View to dynamically search appointments and details from the search box
+def search_appointments(request):
+    query = request.GET.get('q', '')
+
+    if len(query) < 2:
+        return JsonResponse({'results': []})
+
+    appointments = Appointment.objects.filter(
+        Q(patient__name__icontains=query)   |
+        Q(provider__name__icontains=query)
+    ).select_related('patient', 'provider')[:8]
+
+    results = []
+    for appt in appointments:
+        results.append({
+            'id': appt.pk,
+            'patient_name': appt.patient.name,
+            'patient_age': appt.patient.age,
+            'patient_condition': appt.patient.condition,
+            'duration': appt.duration_minutes,
+            'status': appt.status,            
+            'provider_name': appt.provider.name,
+            'appointment_type': appt.get_appointment_type_display(),
+            'time': appt.start_time.strftime('%H:%M'),
+        })
+
+    return JsonResponse({'results': results})

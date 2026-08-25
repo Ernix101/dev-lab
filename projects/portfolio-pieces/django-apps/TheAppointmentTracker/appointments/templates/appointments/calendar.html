@@ -23,6 +23,12 @@
          
 </div>
 <div class="calendar-grid">
+    <div class="time-scale">
+        {% for hour in hours %}
+            <div class="hour-label">{{ hour }}</div>
+        {% endfor %}
+    </div>
+
     {% for day, day_appointments in schedule %}
     <div class="day-column">
         <h3>
@@ -38,7 +44,10 @@
                 data-duration="{{ appt.duration_minutes }}"
                 data-patient-condition="{{ appt.patient.condition }}"
                 data-type="{{ appt.get_appointment_type_display }}"
-                data-status="{{ appt_get_status_display }}">
+                data-status="{{ appt.get_status_display }}"
+                data-status-raw="{{ appt.status }}"
+                data-appointment-id="{{ appt.pk }}"
+                style="top: {{ appt.top_position }}px">
 
                 <span class="appt-time">{{ appt.start_time|time:"H:i" }}</span>
                 <span class="appt-patient">{{ appt.patient.name }}</span>
