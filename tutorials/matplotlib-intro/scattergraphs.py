@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-import numpy as np 
+import numpy as np
 
 # Scatter graph = Shows the relationship btw two variables
 #                 Helps to identify a correlation (+, -, None)
